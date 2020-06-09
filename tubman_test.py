@@ -30,7 +30,7 @@ DHT_PIN_TUB2 = 5
 
 
 
-##Sensor reading
+##Tub 1 Sensor reading
 while True:
     humidity_tub1, temperature_tub1 = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN_TUB1)
     if humidity_tub1 is not None and temperature_tub1 is not None:
@@ -42,7 +42,7 @@ while True:
         if(tempf_tub1<72):
             print ("Tub1 Heat on")
             GPIO.output(18,GPIO.LOW)
-            time.sleep(2)
+            time.sleep(20)
             print ("Tub1 Heat off")
             GPIO.output(18,GPIO.HIGH)
             
@@ -72,7 +72,7 @@ while True:
 
         wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub1, humidity_tub1])
         f.close()
-        
+## Tub2 sensor reading        
     humidity_tub2, temperature_tub2 = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN_TUB2)
     if humidity_tub2 is not None and temperature_tub2 is not None:
         tempf_tub2 = temperature_tub2 *1.8 + 32
@@ -80,15 +80,15 @@ while True:
  
  ##Heater tub2 (need new GPIO, 18 used for tub1)
         if(tempf_tub2<72):
-            print ("Tub1 Heat on")
+            print ("Tub2 Heat on")
             GPIO.output(18,GPIO.LOW)
-            time.sleep(2)
-            print ("Tub1 Heat off")
+            time.sleep(20)
+            print ("Tub2 Heat off")
             GPIO.output(18,GPIO.HIGH)
             
 
-##Fan control tub2 (overheating tub2, need )
-        if(tempf_tub1>90):
+##Fan control tub2 (overheating tub2, need new GPIO )
+        if(tempf_tub2>90):
             print ("Tub 1 Fan on")
             GPIO.output(5,GPIO.LOW)
             time.sleep(10)
@@ -97,12 +97,12 @@ while True:
            
 ##Humidity control tub1
               
-        if(humidity_tub1 < 90):
+        if(humidity_tub2 < 90):
             GPIO.output(12,GPIO.LOW)
-            print("Tub 1 Humid on")
+            print("Tub 2 Humid on")
             time.sleep(8)
-        if(humidity_tub1>91):
-            print ("Tub 1 humid off")
+        if(humidity_tub2>91):
+            print ("Tub 2 humid off")
             GPIO.output(12,GPIO.HIGH)
 
 ##logging tub2    
