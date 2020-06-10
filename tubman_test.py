@@ -52,7 +52,7 @@ while True:
         if(tempf_tub1>90):
             print ("Tub 1 Fan on")
             GPIO.output(5,GPIO.LOW)
-            time.sleep(10)python3 
+            time.sleep(10)
             print ("Tub 1 Fan off")
             GPIO.output(5,GPIO.HIGH)
            
