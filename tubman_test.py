@@ -76,7 +76,7 @@ while True:
                            
         
        ##logging tub1    
-        f=open("Tub1 log.csv", "a", newline="")
+        f=open("Tub1_log.csv", "a", newline="")
         wc=csv.writer(f)
 
         wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub1, humidity_tub1])
@@ -122,7 +122,7 @@ while True:
             GPIO.output(12,GPIO.HIGH)
 
 ##logging tub2    
-        f=open("Tub2 log.csv", "a", newline="")
+        f=open("Tub2_log.csv", "a", newline="")
         wc=csv.writer(f)
 
         wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub2, humidity_tub2])
