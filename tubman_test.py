@@ -12,13 +12,14 @@ GPIO.setwarnings(False)
 GPIO.setup(18,GPIO.OUT)
 GPIO.output(18,GPIO.HIGH)
 
-##Humidifier relay
+##Humidifier relay pin 12
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(12,GPIO.OUT)
 GPIO.output(12,GPIO.HIGH)
 
-##Fan1 relay
+##Fan1 relay pin 5
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(5,GPIO.OUT)
@@ -47,20 +48,28 @@ while True:
             GPIO.output(18,GPIO.HIGH)
             
 
-##Fan control (overheating tub1)
+            ##Fan control (overheating tub1)
         if(tempf_tub1>90):
             print ("Tub 1 Fan on")
             GPIO.output(5,GPIO.LOW)
-            time.sleep(10)
+            time.sleep(10)python3 
             print ("Tub 1 Fan off")
             GPIO.output(5,GPIO.HIGH)
            
-##Humidity control tub1
+            ##Humidity control tub1
               
         if(humidity_tub1 < 90):
+                ##fogger on
             GPIO.output(12,GPIO.LOW)
             print("Tub 1 Humid on")
             time.sleep(8)
+                ##Fan1 on
+            GPIO.output(18,GPIO.LOW)
+            time.sleep(10)
+                ##Fan1 off
+            GPIO.output(18,GPIO.HIGH)
+                ##fogger off
+            GPIO.output(12,GPIO.HIGH)
         if(humidity_tub1>91):
             print ("Tub 1 humid off")
             GPIO.output(12,GPIO.HIGH)
@@ -100,7 +109,14 @@ while True:
         if(humidity_tub2 < 90):
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
-            time.sleep(8)
+            time.sleep(8)  
+                ##Fan1 on
+            GPIO.output(18,GPIO.LOW)
+            time.sleep(10)
+                ##Fan1 off
+            GPIO.output(18,GPIO.HIGH)
+                ##fogger off
+            GPIO.output(12,GPIO.HIGH)
         if(humidity_tub2>91):
             print ("Tub 2 humid off")
             GPIO.output(12,GPIO.HIGH)
