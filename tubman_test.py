@@ -52,7 +52,7 @@ while True:
         if(tempf_tub1>90):
             print ("Tub 1 Fan on")
             GPIO.output(5,GPIO.LOW)
-            time.sleep(10)
+            time.sleep(2)
             print ("Tub 1 Fan off")
             GPIO.output(5,GPIO.HIGH)
            
@@ -65,7 +65,7 @@ while True:
             time.sleep(8)
                 ##Fan1 on
             GPIO.output(18,GPIO.LOW)
-            time.sleep(10)
+            time.sleep(2)
                 ##Fan1 off
             GPIO.output(18,GPIO.HIGH)
                 ##fogger off
@@ -101,6 +101,7 @@ while True:
             print ("Tub 1 Fan on")
             GPIO.output(5,GPIO.LOW)
             time.sleep(10)
+            fan2overheat=10
             print ("Tub 1 Fan off")
             GPIO.output(5,GPIO.HIGH)
            
