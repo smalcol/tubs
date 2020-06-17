@@ -6,7 +6,7 @@ import Adafruit_DHT
 import time
 import RPi.GPIO as GPIO
 
-## Heater relay pin 18
+## Fan relay pin 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(18,GPIO.OUT)
@@ -18,13 +18,7 @@ GPIO.setwarnings(False)
 GPIO.setup(12,GPIO.OUT)
 GPIO.output(12,GPIO.HIGH)
 
-##Fan1 relay pin 5
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(5,GPIO.OUT)
-GPIO.output(5,GPIO.LOW)
- 
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN_TUB1 = 4
 DHT_PIN_TUB2 = 5
@@ -51,6 +45,7 @@ while True:
 ##Humidity control tub1
               
         if(humidity_tub2 < 97):
+            humid_time=10
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
             time.sleep(30)  
@@ -68,17 +63,18 @@ while True:
     ##Fan control (overheating tub1)
         if(tempf_tub1>90):
             print ("Tub 1 Fan on")
-            GPIO.output(5,GPIO.LOW)
-            time.sleep(2)
+            GPIO.output(18,GPIO.LOW)
+            time.sleep(10)
             print ("Tub 1 Fan off")
-            GPIO.output(5,GPIO.HIGH)
+            GPIO.output(18,GPIO.HIGH)
     
     ##logging tub2    
         f=open("Tub2_log.csv", "a", newline="")
         wc=csv.writer(f)
 
-        wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub2, humidity_tub2])
+        wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub2, humidity_tub2, tempf_tub1, humidity_tub1, humid_time])
         f.close()
+        humid_time=0
 
 else:
     print("Sensor failure. Check wiring.");
