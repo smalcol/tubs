@@ -50,7 +50,7 @@ while True:
            
 ##Humidity control tub1
               
-        if(humidity_tub2 < 93):
+        if(humidity_tub2 < 95):
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
             time.sleep(20)  
@@ -61,7 +61,7 @@ while True:
             GPIO.output(18,GPIO.HIGH)
                 ##fogger off
             GPIO.output(12,GPIO.HIGH)
-        if(humidity_tub2>94):
+        if(humidity_tub2>96):
             print ("Tub 2 humid off")
             GPIO.output(12,GPIO.HIGH)
 
