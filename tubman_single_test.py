@@ -50,7 +50,7 @@ while True:
            
 ##Humidity control tub1
               
-        if(humidity_tub2 < 90):
+        if(humidity_tub2 < 93):
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
             time.sleep(20)  
@@ -61,11 +61,19 @@ while True:
             GPIO.output(18,GPIO.HIGH)
                 ##fogger off
             GPIO.output(12,GPIO.HIGH)
-        if(humidity_tub2>91):
+        if(humidity_tub2>94):
             print ("Tub 2 humid off")
             GPIO.output(12,GPIO.HIGH)
 
-##logging tub2    
+    ##Fan control (overheating tub1)
+        if(tempf_tub1>90):
+            print ("Tub 1 Fan on")
+            GPIO.output(5,GPIO.LOW)
+            time.sleep(2)
+            print ("Tub 1 Fan off")
+            GPIO.output(5,GPIO.HIGH)
+    
+    ##logging tub2    
         f=open("Tub2_log.csv", "a", newline="")
         wc=csv.writer(f)
 
