@@ -53,7 +53,7 @@ while True:
         if(humidity_tub2 < 90):
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
-            time.sleep(8)  
+            time.sleep(20)  
                 ##Fan1 on
             GPIO.output(18,GPIO.LOW)
             time.sleep(2)
