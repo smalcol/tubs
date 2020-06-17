@@ -27,6 +27,7 @@ DHT_PIN_TUB2 = 5
 
 ##Tub 1 Sensor reading
 while True:
+    humid_time=0
     humidity_tub1, temperature_tub1 = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN_TUB1)
     if humidity_tub1 is not None and temperature_tub1 is not None:
         tempf_tub1 = temperature_tub1 *1.8 + 32
