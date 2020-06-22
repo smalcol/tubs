@@ -52,7 +52,7 @@ while True:
             time.sleep(30)  
                 ##Fan1 on
             GPIO.output(18,GPIO.LOW)
-            time.sleep(8)
+            time.sleep(4)
                 ##Fan1 off
             GPIO.output(18,GPIO.HIGH)
                 ##fogger off
