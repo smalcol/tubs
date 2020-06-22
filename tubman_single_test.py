@@ -52,14 +52,13 @@ while True:
             time.sleep(30)  
                 ##Fan1 on
             GPIO.output(18,GPIO.LOW)
-            time.sleep(2)
+            time.sleep(4)
                 ##Fan1 off
             GPIO.output(18,GPIO.HIGH)
                 ##fogger off
             GPIO.output(12,GPIO.HIGH)
         if(humidity_tub2>97):
-            print ("Tub 2 humid off")
-            GPIO.output(12,GPIO.HIGH)
+           GPIO.output(12,GPIO.HIGH)
 
     ##Fan control (overheating tub1)
         if(tempf_tub1>90):
