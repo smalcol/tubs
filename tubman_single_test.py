@@ -60,13 +60,7 @@ while True:
         if(humidity_tub2>97):
            GPIO.output(12,GPIO.HIGH)
 
-    ##Fan control (overheating tub1)
-        if(tempf_tub1>90):
-            print ("Tub 1 Fan on")
-            GPIO.output(18,GPIO.LOW)
-            time.sleep(10)
-            print ("Tub 1 Fan off")
-            GPIO.output(18,GPIO.HIGH)
+    
     
     ##logging tub2    
         f=open("Tub2_log.csv", "a", newline="")
