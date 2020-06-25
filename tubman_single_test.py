@@ -97,6 +97,7 @@ while True:
               
         if(humidity_tub2 < 97):
             humid_time=10
+            humid="on"
             GPIO.output(12,GPIO.LOW)
             print("Tub 2 Humid on")
             time.sleep(30)  
@@ -109,6 +110,7 @@ while True:
             GPIO.output(12,GPIO.HIGH)
         if(humidity_tub2>97):
            GPIO.output(12,GPIO.HIGH)
+           humid="off"
 
     
     
@@ -133,6 +135,7 @@ while True:
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
     draw.text((x, top+8),     "T1= " + str(temp1) + " Hmd1=" + str(humidity_tub1), font=font, fill=255)
     draw.text((x, top+16),    "T2= " + str(temp2) + " Hmd2=" + str(humidity_tub2), font=font, fill=255)
+    draw.text((x, top+16),    "humidifier= " + str(humid), font=font, fill=255)
     
 
     # Display image.
