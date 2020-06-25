@@ -137,8 +137,8 @@ while True:
     # Write two lines of text.
 
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
-    draw.text((x, top+8),     str(tempf_tub2), font=font, fill=255)
-    draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
+    draw.text((x, top+8),     "Tub1 temp " + str(tempf_tub1) + " Humid tub1 " + str(Humidity_tub1), font=font, fill=255)
+    draw.text((x, top+16),    "Tub2 temp " + str(tempf_tub2), font=font, fill=255)
     draw.text((x, top+25),    str(Disk),  font=font, fill=255)
 
     # Display image.
