@@ -86,16 +86,13 @@ while True:
     if humidity_tub1 is not None and temperature_tub1 is not None:
         tempf_tub1 = temperature_tub1 *1.8 + 32
         temp1 = round(tempf_tub1,1)
-        print("Temp_tub1={0:0.1f}F Humidity_tub1={1:0.1f}%".format(tempf_tub1, humidity_tub1))
-        
-    
+                   
 ## Tub2 sensor reading        
     humidity_tub2, temperature_tub2 = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN_TUB2)
     if humidity_tub2 is not None and temperature_tub2 is not None:
         tempf_tub2 = temperature_tub2 *1.8 + 32
         temp2 = round(tempf_tub2,1)
-        print("Temp_tub2={0:0.1f}F Humidity_tub2={1:0.1f}%".format(tempf_tub2, humidity_tub2))
-                      
+                              
 ##Humidity control tub1
               
         if(humidity_tub2 < 97):
@@ -129,19 +126,14 @@ while True:
     # Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
     cmd = "hostname -I | cut -d\' \' -f1"
     IP = subprocess.check_output(cmd, shell = True )
-    cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
-    CPU = subprocess.check_output(cmd, shell = True )
-    cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
-    MemUsage = subprocess.check_output(cmd, shell = True )
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
-    Disk = subprocess.check_output(cmd, shell = True )
+    
 
     # Write four lines of text.
 
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
     draw.text((x, top+8),     "T1= " + str(temp1) + " Hmd1=" + str(humidity_tub1), font=font, fill=255)
     draw.text((x, top+16),    "T2= " + str(temp2) + " Hmd2=" + str(humidity_tub2), font=font, fill=255)
-    draw.text((x, top+25),    str(Disk),  font=font, fill=255)
+    
 
     # Display image.
     disp.image(image)
