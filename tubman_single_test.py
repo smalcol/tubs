@@ -135,7 +135,7 @@ while True:
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
     draw.text((x, top+8),     "T1= " + str(temp1) + " Hmd1=" + str(humidity_tub1), font=font, fill=255)
     draw.text((x, top+16),    "T2= " + str(temp2) + " Hmd2=" + str(humidity_tub2), font=font, fill=255)
-    draw.text((x, top+16),    "humidifier= " + str(humid), font=font, fill=255)
+    draw.text((x, top+25),    "humidifier= " + str(humid), font=font, fill=255)
     
 
     # Display image.
