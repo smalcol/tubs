@@ -93,8 +93,7 @@ while True:
     humidity_tub2, temperature_tub2 = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN_TUB2)
     if humidity_tub2 is not None and temperature_tub2 is not None:
         tempf_tub2 = temperature_tub2 *1.8 + 32
-        temp2 = round(tempf+tub2,1)
-        round(tempf_tub2,1)
+        temp2 = round(tempf_tub2,1)
         print("Temp_tub2={0:0.1f}F Humidity_tub2={1:0.1f}%".format(tempf_tub2, humidity_tub2))
                       
 ##Humidity control tub1
