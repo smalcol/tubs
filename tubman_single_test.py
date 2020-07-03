@@ -115,7 +115,7 @@ while True:
     
     
     ##logging tub2    
-        f=open("Tub2_log.csv", "a", newline="")
+        f=open("/home/pi/tubs/Tub2_log.csv", "a", newline="")
         wc=csv.writer(f)
 
         wc.writerow([datetime.now().strftime("%Y-%m-%d %H:%M:%S"), tempf_tub2, humidity_tub2, tempf_tub1, humidity_tub1, humid_time])
